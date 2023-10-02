@@ -21,16 +21,17 @@ import protocol.Smtp;
 public class FactoryProtocol implements IFactoryProtocol {
 
     public IUsePort usePort;
+    ChainProtocol smtp;
 
     public FactoryProtocol() {
         this.usePort = new UsePort();
+        this.smtp = new Smtp();
     }
 
     @Override
     public boolean useProtocol(User user, Email email, EnumProtocol protocol,
             EnumServer server) {
         String port = usePort.readFile(protocol, server);
-        ChainProtocol smtp = new Smtp();
         return smtp.sendEmail(user, email, protocol, server, port);
     }
 

@@ -4,12 +4,12 @@
  */
 package pantallas;
 
+import controlador.Controlador;
+import controlador.IControlador;
 import domain.Email;
 import domain.User;
 import enums.EnumProtocol;
 import enums.EnumServer;
-import facade.Facade;
-import facade.IFacade;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -21,7 +21,7 @@ public class PantallaEnvioCorreo extends javax.swing.JFrame {
 
     DefaultComboBoxModel<EnumServer> modelServer = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<EnumProtocol> modelProtocolo = new DefaultComboBoxModel<>();
-    IFacade facade;
+    IControlador controlador;
 
     /**
      * Creates new form PantallaEnvioCorreo
@@ -29,7 +29,7 @@ public class PantallaEnvioCorreo extends javax.swing.JFrame {
     public PantallaEnvioCorreo() {
         this.llenarCbxProtocolo();
         this.llenarCbxServer();
-        this.facade = new Facade();
+        this.controlador = new Controlador();
         initComponents();
 
     }
@@ -216,7 +216,7 @@ public class PantallaEnvioCorreo extends javax.swing.JFrame {
     public void enviarCorreo() {
         User user = new User(this.txtCorreo.getText(), this.txtContrasenia.getText());
         Email email = new Email(this.txtEmailPara.getText(), this.txtAsunto.getText(), this.txtMensaje.getText());
-        boolean respuesta = facade.sendEmial(user, email, (EnumProtocol) this.cbxProtocolo.getSelectedItem(), (EnumServer) this.cbxServidor.getSelectedItem());
+        boolean respuesta = controlador.sendEmail(user, email, (EnumProtocol) this.cbxProtocolo.getSelectedItem(), (EnumServer) this.cbxServidor.getSelectedItem());
         if (respuesta == true) {
             JOptionPane.showMessageDialog(null, "Exito al enviar correo");
             this.txtEmailPara.setText("");

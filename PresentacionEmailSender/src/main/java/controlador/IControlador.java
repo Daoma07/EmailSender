@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facade;
+package controlador;
 
 import domain.Email;
 import domain.User;
@@ -14,9 +14,8 @@ import enums.EnumServer;
  *
  * @author HP
  */
-public interface IFacade {
+public interface IControlador {
 
     public boolean sendEmail(User user, Email email, EnumProtocol protocol,
             EnumServer server);
-
 }

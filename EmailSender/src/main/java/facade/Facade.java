@@ -26,8 +26,8 @@ public class Facade implements IFacade {
     }
 
     @Override
-    public boolean sendEmial(User user, Email email, EnumProtocol protocol, EnumServer server) {
-       return factoryProtocol.useProtocol(user, email, protocol, server);
+    public boolean sendEmail(User user, Email email, EnumProtocol protocol, EnumServer server) {
+        return factoryProtocol.useProtocol(user, email, protocol, server);
     }
 
 }

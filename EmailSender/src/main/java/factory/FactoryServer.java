@@ -18,20 +18,23 @@ import server.Yahoo;
  */
 public class FactoryServer implements IFactoryServer {
 
+    ChainServer gmail;
+    ChainServer iCloud;
+    ChainServer outlook;
+    ChainServer yahoo;
+
+    public FactoryServer() {
+        this.gmail = new Gmail();
+        this.iCloud = new ICloud();
+        this.outlook = new Outlook();
+        this.yahoo = new Yahoo();
+    }
+
     @Override
     public String useServer(EnumServer server) {
-
-        ChainServer gmail = new Gmail();
-        ChainServer iCloud = new ICloud();
-        ChainServer outlook = new Outlook();
-        ChainServer yahoo = new Yahoo();
-
         gmail.setNextServer(iCloud);
         iCloud.setNextServer(outlook);
         outlook.setNextServer(yahoo);
-
         return gmail.useServer(server);
-
     }
-
 }
