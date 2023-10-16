@@ -5,34 +5,28 @@
  */
 package factory;
 
-import domain.Email;
-import domain.User;
 import enums.EnumProtocol;
-import enums.EnumServer;
-import port.IUsePort;
-import port.UsePort;
-import protocol.ChainProtocol;
-import protocol.Smtp;
 
 /**
  *
  * @author HP
  */
+import chain.ChainProtocol;
+import linkProtocol.linkProtocol;
+import protocol.IProtocol;
+
 public class FactoryProtocol implements IFactoryProtocol {
 
-    public IUsePort usePort;
-    ChainProtocol smtp;
+    ChainProtocol chainProtocol;
 
     public FactoryProtocol() {
-        this.usePort = new UsePort();
-        this.smtp = new Smtp();
+
+        this.chainProtocol = new linkProtocol();
     }
 
     @Override
-    public boolean useProtocol(User user, Email email, EnumProtocol protocol,
-            EnumServer server) {
-        String port = usePort.readFile(protocol, server);
-        return smtp.sendEmail(user, email, protocol, server, port);
+    public IProtocol useProtocol(EnumProtocol protocol) {
+        return chainProtocol.useProtocol(protocol);
     }
 
 }

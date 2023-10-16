@@ -9,8 +9,8 @@ import domain.Email;
 import domain.User;
 import enums.EnumProtocol;
 import enums.EnumServer;
-import factory.FactoryProtocol;
-import factory.IFactoryProtocol;
+import sendEmail.ISendEmail;
+import sendEmail.SendEmail;
 
 /**
  *
@@ -19,15 +19,15 @@ import factory.IFactoryProtocol;
 //Facade
 public class Facade implements IFacade {
 
-    IFactoryProtocol factoryProtocol;
+    ISendEmail sendEmailWeb;
 
     public Facade() {
-        this.factoryProtocol = new FactoryProtocol();
+        sendEmailWeb = new SendEmail();
     }
 
     @Override
     public boolean sendEmail(User user, Email email, EnumProtocol protocol, EnumServer server) {
-        return factoryProtocol.useProtocol(user, email, protocol, server);
+        return sendEmailWeb.sendEmail(user, email, protocol, server);
     }
 
 }

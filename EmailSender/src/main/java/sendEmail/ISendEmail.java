@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factory;
+package sendEmail;
 
+import domain.Email;
+import domain.User;
 import enums.EnumProtocol;
-import protocol.IProtocol;
+import enums.EnumServer;
 
 /**
  *
  * @author HP
  */
-public interface IFactoryProtocol {
+public interface ISendEmail {
 
-    public IProtocol useProtocol(EnumProtocol protocol);
+    public boolean sendEmail(User user, Email email, EnumProtocol protocol,
+            EnumServer server);
+
 }

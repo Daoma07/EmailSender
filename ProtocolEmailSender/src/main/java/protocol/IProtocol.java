@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package factory;
+package protocol;
 
-import enums.EnumProtocol;
-import protocol.IProtocol;
+import domain.Email;
+import domain.User;
 
 /**
  *
  * @author HP
  */
-public interface IFactoryProtocol {
+public interface IProtocol {
 
-    public IProtocol useProtocol(EnumProtocol protocol);
+    public boolean senEmail(User user, Email email, String jsonServer, String port);
 }
