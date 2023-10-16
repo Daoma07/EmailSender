@@ -12,7 +12,7 @@ import enums.EnumProtocol;
  * @author HP
  */
 import chain.ChainProtocol;
-import linkProtocol.linkProtocol;
+import linkProtocol.LinkProtocol;
 import protocol.IProtocol;
 
 public class FactoryProtocol implements IFactoryProtocol {
@@ -21,12 +21,11 @@ public class FactoryProtocol implements IFactoryProtocol {
 
     public FactoryProtocol() {
 
-        this.chainProtocol = new linkProtocol();
+        this.chainProtocol = new LinkProtocol();
     }
 
     @Override
     public IProtocol useProtocol(EnumProtocol protocol) {
         return chainProtocol.useProtocol(protocol);
     }
-
 }

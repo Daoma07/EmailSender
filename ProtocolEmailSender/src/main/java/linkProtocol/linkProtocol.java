@@ -7,21 +7,21 @@ package linkProtocol;
 
 import enums.EnumProtocol;
 import protocol.IProtocol;
-import protocol.Smtp;
+import protocol.SMTP;
 import chain.ChainProtocol;
 
 /**
  *
  * @author HP
  */
-public class linkProtocol extends ChainProtocol {
+public class LinkProtocol extends ChainProtocol {
 
     IProtocol typeProtocol;
 
     @Override
     public IProtocol useProtocol(EnumProtocol protocol) {
         if (protocol.equals(protocol.SMTP)) {
-            typeProtocol = new Smtp();
+            typeProtocol = new SMTP();
         }
 
         return typeProtocol;

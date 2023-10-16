@@ -21,7 +21,7 @@ import javax.mail.internet.MimeMessage;
  *
  * @author HP
  */
-public class Smtp implements IProtocol {
+public class SMTP implements IProtocol {
 
     @Override
     public boolean senEmail(User user, Email email, String jsonServer, String port) {
@@ -60,7 +60,7 @@ public class Smtp implements IProtocol {
             transport.close();
             return true;
         } catch (MessagingException me) {
-            me.printStackTrace();   //Si se produce un error
+            me.printStackTrace();
             return false;
         } catch (Exception e) {
             return false;

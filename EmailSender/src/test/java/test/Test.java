@@ -25,11 +25,11 @@ public class Test {
         // TODO code application logic here
 
         IFacade facade = new Facade();
-////        facade.sendEmial(new User("daoma222@gmail.com", "rfva uvsn fpzi ubjc"),
-////                new Email("daniel.lopez.044@hotmail.com", "pruebas", "hola"), EnumProtocol.SMTP, EnumServer.GMAIL);
-////        
-        System.out.println(facade.sendEmail(new User("danil.lopez.044@hotmail.com", "daniel2002"),
-                new Email("daoma222@gmail.com", "pruebas", "Hola a todos"), EnumProtocol.SMTP, EnumServer.OUTLOOK));
+        System.out.println(facade.sendEmail(new User("daoma222@gmail.com", "rfva uvsn fpzi ubjc"),
+                new Email("daniel.alameda228343@potros.itson.edu.mx", "pruebas", "hola"), EnumProtocol.SMTP, EnumServer.GMAIL));
+
+//        System.out.println(facade.sendEmail(new User("danil.lopez.044@hotmail.com", "daniel2002"),
+//                new Email("daoma222@gmail.com", "pruebas", "Hola a todos"), EnumProtocol.SMTP, EnumServer.OUTLOOK));
 
 //  
     }
