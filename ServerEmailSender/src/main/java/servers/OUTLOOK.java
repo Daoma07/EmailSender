@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server;
+package servers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import server.Server;
 
 /**
  *
  * @author HP
  */
-public class ICloud implements IServer {
+public class OUTLOOK implements Server {
 
-    private final String host = "mail.me.com";
+    private final String host = "office365.com";
 
     @Override
     public String useServer() {

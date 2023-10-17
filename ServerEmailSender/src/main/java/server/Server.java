@@ -9,7 +9,7 @@ package server;
  *
  * @author HP
  */
-public interface IServer {
+public interface Server {
 
     public String useServer();
 }

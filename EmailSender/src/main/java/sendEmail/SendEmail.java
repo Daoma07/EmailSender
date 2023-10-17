@@ -9,13 +9,12 @@ import domain.Email;
 import domain.User;
 import enums.EnumProtocol;
 import enums.EnumServer;
-import factory.FactoryProtocol;
-import factory.FactoryServer;
-import factory.IFactoryProtocol;
-import factory.IFactoryServer;
+import factoryProtocol.FactoryProtocol;
+import factoryServer.FactoryServer;
+import factoryProtocol.IFactoryProtocol;
+import factoryServer.IFactoryServer;
 import port.IUsePort;
 import port.UsePort;
-import protocol.IProtocol;
 
 /**
  *

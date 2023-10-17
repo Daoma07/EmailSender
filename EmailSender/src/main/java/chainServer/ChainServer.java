@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chain;
-
-import enums.EnumServer;
+package chainServer;
 
 /**
  *
@@ -13,11 +11,11 @@ import enums.EnumServer;
  */
 public abstract class ChainServer {
 
-    public ChainServer nextChainServer;
+    public ChainServer nextHandler;
 
-    public void setNextServer(ChainServer chainServer) {
-        this.nextChainServer = chainServer;
+    public void setNextServer(ChainServer nexnextHandler) {
+        this.nextHandler = nexnextHandler;
     }
 
-    public abstract String useServer(EnumServer server);
+    public abstract String useServer();
 }

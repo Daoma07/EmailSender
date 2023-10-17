@@ -11,8 +11,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  *
  * @author HP
  */
-import linkServer.LinkServer;
-import server.*;
+import sendServer.SendServer;
 
 public class Test {
 

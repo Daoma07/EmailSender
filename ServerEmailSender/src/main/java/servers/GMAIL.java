@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package server;
+package servers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import server.Server;
 
 /**
  *
  * @author HP
  */
-public class Gmail implements IServer {
+public class GMAIL implements Server {
 
     private final String host = "gmail.com";
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package protocol;
+package protocols;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,12 +16,13 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import protocol.Protocol;
 
 /**
  *
  * @author HP
  */
-public class SMTP implements IProtocol {
+public class SMTP implements Protocol {
 
     @Override
     public boolean senEmail(User user, Email email, String jsonServer, String port) {
@@ -30,26 +31,23 @@ public class SMTP implements IProtocol {
         try {
             JsonNode jsonNode = objectMapper.readTree(jsonServer);
             host = jsonNode.get("host").asText();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //The shipping email address
-        String remitente = user.getEmailSender();
-        //The application key obtained as explained in this article:
-        String claveemail = user.getPassword();
 
-        Properties props = System.getProperties();
-        props.put("mail.smtp.host", "smtp." + host);
-        props.put("mail.smtp.user", remitente);
-        props.put("mail.smtp.clave", claveemail);
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.port", port);
+            //The shipping email address
+            String remitente = user.getEmailSender();
+            //The application key obtained as explained in this article:
+            String claveemail = user.getPassword();
 
-        Session session = Session.getDefaultInstance(props);
-        MimeMessage message = new MimeMessage(session);
+            Properties props = System.getProperties();
+            props.put("mail.smtp.host", "smtp." + host);
+            props.put("mail.smtp.user", remitente);
+            props.put("mail.smtp.clave", claveemail);
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.port", port);
 
-        try {
+            Session session = Session.getDefaultInstance(props);
+            MimeMessage message = new MimeMessage(session);
+
             message.setFrom(new InternetAddress(remitente));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email.getEmailReceiver()));   //Se podrían añadir varios de la misma manera
             message.setSubject(email.getSubject());
